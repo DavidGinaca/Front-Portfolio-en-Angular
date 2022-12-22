@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row">
+    <div id="content-wrapper2" data-aos="fade-up" data-aos-duration="3000">
+      <button class="btn btn-brand btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+        aria-expanded="false" aria-controls="collapseExample" *ngIf="!isLogged">        
+        Iniciar Sesion
+      </button>
+
+      <a class="btn nav-link btn-brand mt-2" *ngIf="isLogged" (click)="OnCerrar()" href="#">Cerrar Sesion</a>
+      
+    </div>
+    <div class="collapse" id="collapseExample" *ngIf="!isLogged">
+      <div class="card card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <form [formGroup]="form1" class="m-1" (ngSubmit)="OnEnviar($event)">
+                <div class="form-group col-md-3">
+                  <input type="text" formControlName="nombreUsuario" name="nombreUsuario" placeholder="Nombre Usuario"
+                    class="form-control mt-2">
+                </div>
+                <div class="form-group col-md-3">
+                  <input type="password" name="password" formControlName="password" placeholder="Password"
+                    class="form-control mt-2">
+                </div>
+
+                <div>
+                  <button type="submit" class="btn btn-brand mt-2">Ingresar</button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" data-aos="fade-up" data-aos-duration="3000">
+    <div class="container flex-lg-column">
+      <a class="navbar-brand mx-lg-auto mb-lg-4" href="#">
+        <span class="h3 fw-bold d-block d-lg-none"> David Ginaca</span>
+        <img src="./assets/perfil.jpg" class="d-none d-lg-block rounded-circle" alt="foto_perfil" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Inicio</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#acercaDe">Acerca de mi</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#work">Experiencia Laboral</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#educacion">Educacion</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div id="content-wrapper" data-aos="fade-up" data-aos-duration="3000">
+  <section id="home" class="full-height px-lg-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10">
+          <h1>Programador Web Full-Stack</h1>
+          <p class="lead mt-3 mb-4">
+            <span class="text-brand">Programador web fullstack Jr</span>, titulo
+            otorgado por el curso de programación
+            <span class="text-brand">"Argentina Programa"</span>. En Junio del
+            2021 decidí cambiar de rubro y comenzar en el sector IT. Finalice un
+            año de la carrera de técnico en programación de Teclab, me encuentro
+            en mitad de la segunda etapa del curso de Argentina programa
+            (finaliza en enero) y estoy cursando las materias del primer año de
+            la carrera Ingeniero en Informática, en la facultad nacional de mar
+            del plata. Cuento además con certificado de discapacidad, pero no me
+            afecta en ninguna de mis tareas o movilidad.
+          </p>
+          <div class="col-4">
+            <p>Redes:</p>
+            <a href="https://github.com/DavidGinaca?tab=repositories" class="btn btn-brand m-2"
+              target="_blank">github</a>
+            <a href="https://www.facebook.com/dginaca" class="btn btn-brand m-2" target="_blank"><img
+                style="flex-direction: column" src="./assets/face.png" /></a>
+            <a href="https://www.instagram.com/davidginaca/" class="btn btn-brand m-2" target="_blank"><img
+                style="flex-direction: column" src="./assets/insta.png" /></a>
+            <a href="https://www.linkedin.com/in/david-emiliano-ginaca-a59653232/" class="btn btn-brand m-2"
+              target="_blank"><img style="flex-direction: column" src="./assets/linkedin.png" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

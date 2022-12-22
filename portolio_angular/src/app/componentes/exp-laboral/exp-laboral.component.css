@@ -1,0 +1,39 @@
+.bg-base{
+
+    background-color: var(--color-base);
+}
+
+.shadow-effect{
+
+    transition: all o.5s;
+}
+
+.shadow-effect:hover{
+
+    box-shadow: 0px 0px 0 4px var(--color-brand);
+}
+
+
+#work .form-control{
+    background-color: var(--color-base);
+    border-color: var(--color-base);
+    color: var(--color-body);
+    height: 200px;
+
+}
+
+#work .form-control:focus{
+
+    border-color: var(--color-base2);
+    box-shadow: none;
+}
+
+#work .form-control::placeholder{
+
+    color: var(--color-body);
+}
+
+#work input.form-control{
+
+    height: 44px;
+}
