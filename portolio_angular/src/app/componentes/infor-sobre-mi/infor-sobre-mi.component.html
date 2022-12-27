@@ -9,13 +9,17 @@
                 <h1 class="text-brand">Acerca de mi:</h1><br>
 
 
-                <p class="p-4 bg-base rounded-4 shadow-effect" style="align-items: center;">{{acerca.descripcion}}</p>  
+                <p class="p-4 bg-base rounded-4 shadow-effect" style="align-items: center;" *ngIf="data$ |async">{{acerca.descripcion}}</p>  
 
             </div>
-
-            <div class="form-group col-10">  <!-- *ngIf="isLogged" -->
+            <form class="row g-gl-3 gy-3 justify-content-center"action="#"*ngIf="!(data$ |async)" >
+            <div class="form-group col-10">
                 <textarea name="" rows="4" class="form-control bg-base rounded-4 shadow-effect"  style="align-items: center;" placeholder="Edite aquí su información">{{acerca.descripcion}}</textarea>
             </div>
+            <div class="form-group col-10 d-grid">
+                <button type="submit" class="btn btn-brand" >Actualizar</button>
+            </div>
+            </form>
 
         </div>
 

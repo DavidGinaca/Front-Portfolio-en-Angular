@@ -2,14 +2,14 @@
   <div class="row">
     <div id="content-wrapper2" data-aos="fade-up" data-aos-duration="3000">
       <button class="btn btn-brand btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-        aria-expanded="false" aria-controls="collapseExample" *ngIf="!isLogged">        
+        aria-expanded="false" aria-controls="collapseExample" *ngIf="data$ |async">        
         Iniciar Sesion
       </button>
-
-      <a class="btn nav-link btn-brand mt-2" *ngIf="isLogged" (click)="OnCerrar()" href="#">Cerrar Sesion</a>
+  
+      <a class="btn nav-link btn-brand mt-2" (click)="OnCerrar()" href="#" *ngIf="!(data$ |async)">Cerrar Sesion</a>
       
     </div>
-    <div class="collapse" id="collapseExample" *ngIf="!isLogged">
+    <div class="collapse" id="collapseExample" *ngIf="data$ |async">
       <div class="card card-body">
         <div class="container">
           <div class="row">
@@ -25,7 +25,7 @@
                 </div>
 
                 <div>
-                  <button type="submit" class="btn btn-brand mt-2">Ingresar</button>
+                  <button type="submit" class="btn btn-brand mt-2" >Ingresar</button>
                 </div>
 
               </form>

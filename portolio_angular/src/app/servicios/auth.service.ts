@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  url="http://localhost:7070/auth/login";
+  url="http://localhost:7070";
 
   currentUserSubject : BehaviorSubject<any>;
 
@@ -20,15 +21,14 @@ export class AuthService {
    }
 
    IniciarSesion(credenciales:any) : Observable<any>{
-    return this.http.post(this.url, credenciales).pipe(map(data=>{
+      return this.http.post(this.url + "/auth/login", credenciales).pipe(map(data=>{
       sessionStorage.setItem('currentUser', JSON.stringify(data));
       this.currentUserSubject.next(data);
-      return data;
-      
-      
-    }))
-  
+      console.log(data);
+      return data;     
+    })) 
    }
+
 
    
    get UsuarioAutenticado(){
@@ -36,8 +36,8 @@ export class AuthService {
    }
 
    CerrarSesion(){
-    localStorage.removeItem('currentUser');
-   }
+    localStorage.removeItem('currentUser');    
+  }
    
    
    

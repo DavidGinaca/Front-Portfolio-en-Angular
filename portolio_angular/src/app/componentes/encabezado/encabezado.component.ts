@@ -3,6 +3,9 @@ import * as Aos from 'aos';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Router } from '@angular/router';
+import { SharingService } from 'src/app/servicios/sharing.service';
+import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -13,11 +16,12 @@ import { Router } from '@angular/router';
 export class EncabezadoComponent implements OnInit {
   
   form1:FormGroup;
-  isLogged= false;
-  
-  constructor(private formBuilder :FormBuilder, private authService: AuthService, private ruta:Router) { 
+  data$: Observable<Boolean>;
 
-    
+  
+  constructor(private formBuilder :FormBuilder, private authService: AuthService, private ruta:Router, private sharingService: SharingService)  { 
+
+    this.data$ = sharingService.sharingObservable; 
     this.form1 = this.formBuilder.group(
       {
         nombreUsuario:['',[Validators.required]],
@@ -27,7 +31,7 @@ export class EncabezadoComponent implements OnInit {
 
     }
 
-    
+  
 
   ngOnInit(): void {
     
@@ -44,22 +48,16 @@ export class EncabezadoComponent implements OnInit {
   }
 
   OnEnviar(event: Event){
-    var currentUser = this.authService.UsuarioAutenticado;
     event.preventDefault;
-
     this.authService.IniciarSesion(this.form1.value).subscribe(data =>{
-      this.ruta.navigate(['/portfolio']);      
-    
-    if( currentUser && currentUser.accessToken){         
-      this.isLogged= false;
-    }else{
-      this.isLogged=true;
-    }       
+      this.ruta.navigate(['/portfolio']); 
+    this.sharingService.sharingObservableData = false;      
+      
     })
   }
 
   OnCerrar(){
-    return this.authService.CerrarSesion;    
+    return this.authService.CerrarSesion;  
   }
 
 

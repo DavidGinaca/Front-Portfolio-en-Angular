@@ -12,6 +12,8 @@ import { PortfolioIniComponent } from './componentes/portfolio-ini/portfolio-ini
 import { Error404Component } from './componentes/error404/error404.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { CoreModule } from './core/core.module';
+
 
 
 
@@ -28,6 +30,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
     Error404Component,
     ContactoComponent,
     FooterComponent,
+    
+    
       
   ],
   imports: [
@@ -36,8 +40,9 @@ import { FooterComponent } from './componentes/footer/footer.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    CoreModule,
   ],
-  providers: [    
+  providers: [
   ],
   bootstrap: [AppComponent]
 })

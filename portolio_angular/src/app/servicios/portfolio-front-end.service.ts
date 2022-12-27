@@ -10,7 +10,7 @@ export class PortfolioFrontEndService {
   acercaDe: string = 'http://localhost:7070/ver/AcercaDe';
   educacion: string = 'http://localhost:7070/ver/educacion';
   expLaboral: string = 'http://localhost:7070/ver/expLab';
-
+  
 
 
   constructor( private http: HttpClient) {}
@@ -30,6 +30,5 @@ export class PortfolioFrontEndService {
 
     return this.http.get(this.expLaboral);
   }
-
 
 }
